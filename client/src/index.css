@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme{
+  --font-sans: "Plus Jakarta Sans", "Inter", sans-serif;
+  --color-primary: #f5f7fb;
+  --color-solid: #2563eb;
+  --color-solidDark: #1d4ed8;
+  --color-accent: #f97316;
+  --color-primaryOne: #eef4ff;
+  --color-primaryTwo: #fff4eb;
+  --color-primaryThree: #ecfdf5;
+  --color-textColor: #334155;
+  --color-gray-50: #64748b;
+  --color-black: #0f172a;
+  --shadow-soft: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px -12px rgb(15 23 42 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(15 23 42 / 0.04), 0 18px 40px -16px rgb(37 99 235 / 0.28);
+}
+
+html, body{
+  color: var(--color-textColor);
+  background-color: #ffffff;
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+::selection{
+  background: rgb(37 99 235 / 0.15);
+}
+
+@layer components{
+  .max-padd-container{
+    @apply mx-auto max-w-[1900px] px-4 lg:px-12
+  }
+  .padd-container{
+    @apply mx-auto px-4 lg:px-12
+  }
+  .flexCenter{
+    @apply flex items-center justify-center
+  }
+  .flexBetween{
+    @apply flex items-center justify-between
+  }
+  .flexStart{
+    @apply flex items-center justify-start
+  }
+  .flexEnd{
+    @apply flex items-center justify-end
+  }
+
+  .btn-solid{
+    @apply px-6 py-3 active:scale-95 transition bg-solid hover:bg-solidDark border border-transparent text-white text-sm font-semibold rounded-full cursor-pointer shadow-sm shadow-solid/30
+  }
+  .btn-light{
+    @apply px-6 py-3 active:scale-95 transition bg-solid/10 border border-solid/20 text-solid text-sm font-semibold rounded-full cursor-pointer
+  }
+  .btn-outline{
+    @apply px-6 py-3 active:scale-95 transition border border-slate-900/10 hover:border-solid/40 hover:text-solid text-textColor text-sm font-semibold rounded-full cursor-pointer
+  }
+  .btn-white{
+    @apply px-6 py-3 active:scale-95 transition bg-white hover:bg-primaryOne border border-slate-900/5 text-black text-sm font-semibold rounded-full cursor-pointer
+  }
+  .card{
+    @apply bg-white rounded-2xl ring-1 ring-slate-900/5 shadow-soft
+  }
+  .eyebrow{
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[3px] text-solid
+  }
+}
+
+@layer utilities{
+  .active-link{
+    @apply relative text-solid after:w-2/5 after:h-1 after:rounded-full after:bg-solid after:absolute after:-bottom-0.5 after:right-3
+  }
+  .text-gradient{
+    @apply bg-gradient-to-r from-solid to-accent bg-clip-text text-transparent
+  }
+  .bg-grid{
+    background-image:
+      linear-gradient(to right, rgb(15 23 42 / 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(15 23 42 / 0.04) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+  .fade-up{
+    animation: fadeUp .7s ease-out both;
+  }
+
+  h1{
+    @apply text-[38px] md:text-[48px] font-extrabold tracking-tight text-black;
+  }
+  h2{
+    @apply text-[31px] md:text-[38px] font-bold tracking-tight text-black;
+  }
+  h3{
+    @apply text-[24px] md:text-[31px] font-bold tracking-tight text-black;
+  }
+  h4{
+    @apply text-[17px] md:text-[19px] font-bold text-black;
+  }
+  h5{
+    @apply text-[15px] md:text-[16px] font-bold text-black;
+  }
+  p{
+    @apply leading-[1.5] text-[14px] text-gray-50;
+  }
+}
+
+@keyframes fadeUp{
+  from{ opacity: 0; transform: translateY(18px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
